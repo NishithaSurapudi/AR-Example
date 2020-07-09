@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//cdn.8thwall.com/web/aframe/8frame-0.8.2.min.js"></script>  
+    <script src="//cdn.8thwall.com/web/aframe/aframe-animation-component-5.1.2.min.js"></script>
+    <title>Document</title>
+
+    <script src="//apps.8thwall.com/xrweb?appKey=oFrEiWnDz5c3lVyafwPttBR0TN0NBtVYX3LhBRgkj1wk3cNORy7pMMwT6I2ROyCX7WesEN">
+    </script>
+    <script src="https://unpkg.com/aframe-render-order-component@1.0.0/dist/aframe-render-order-component.min.js">
+    </script>
+    <script defer src="//cdn.8thwall.com/web/xrextras/xrextras.js"></script>
+   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.0.1/dist/aframe-extras.min.js"></script>
+    <script src="./js/gesture-detector.js"></script>
+    <script src="./js/camera.js"></script>
+
+</head>
+<body>
+    <a-scene xrweb tap-place gesture-detector pinch-scale two-finger-spin xrextras-almost-there xrextras-loading xrextras-runtime-error>     
+         <a-asset-item id="model" src="./assets/model.gltf" ></a-asset-item>
+         <a-camera position="0 8 0" raycaster="objects: .cantap" cursor="
+         fuse: false;
+         rayOrigin: mouse;" light="intensity:1" id="aCamera">
+         </a-camera>
+        <a-entity light="type:hemisphere;" position="1 1 0.0001" id="ar-light">
+        </a-entity>
+        <a-entity id="ground" class="cantap" geometry="primitive: box"
+        material="color: #ffffff; transparent: true; opacity: 0.0" scale="1000 2 1000" position="0 -1 0">
+    </a-entity>
+    </a-scene>
+</body>
+</html>
