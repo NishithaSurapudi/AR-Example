@@ -64,15 +64,15 @@ AFRAME.registerComponent('pinch-scale', {
         gltfModel.object3D.scale.y = this.scaleFactor * this.initialScale.y;
         gltfModel.object3D.scale.z = this.scaleFactor * this.initialScale.z;
 
-        if (gltfModel.object3D.scale.x || gltfModel.object3D.scale.y || gltfModel.object3D.scale.z <= 4) {
+        if (gltfModel.object3D.scale.x || gltfModel.object3D.scale.y || gltfModel.object3D.scale.z <= 2) {
             gltfModel.object3D.scale.x = this.scaleFactor * this.initialScale.x;
             gltfModel.object3D.scale.y = this.scaleFactor * this.initialScale.y;
             gltfModel.object3D.scale.z = this.scaleFactor * this.initialScale.z;
         }
         else {
-            gltfModel.object3D.scale.x = 4;
-            gltfModel.object3D.scale.y = 4;
-            gltfModel.object3D.scale.z = 4;
+            gltfModel.object3D.scale.x = 2;
+            gltfModel.object3D.scale.y = 2;
+            gltfModel.object3D.scale.z = 2;
         }
     }
 });
