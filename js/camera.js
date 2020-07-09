@@ -14,9 +14,9 @@ AFRAME.registerComponent('tap-place', {
                 newElement.setAttribute('position', touchPoint)
                 newElement.setAttribute('visible', 'false')
                 newElement.setAttribute('scale', '0.3 0.3 0.3')
-                newElement.setAttribute('id','modelID1')
+                newElement.setAttribute('id', 'modelID1')
                 newElement.setAttribute('gltf-model', '#model')
-                 const xrweb = document.getElementsByTagName('a-scene')
+                const xrweb = document.getElementsByTagName('a-scene')
                 console.log(document.getElementsByTagName('a-scene')[0].attributes)
                 this.el.sceneEl.appendChild(newElement)
                 newElement.addEventListener('model-loaded', () => {
@@ -35,10 +35,10 @@ AFRAME.registerComponent('tap-place', {
 
 //the component for scaling the 3d model
 
-  AFRAME.registerComponent('pinch-scale', {
+AFRAME.registerComponent('pinch-scale', {
     schema: {
         min: { default: 0.5 },
-        max: { default: 2.5}
+        max: { default: 2.5 }
     },
 
     init: function () {
@@ -63,5 +63,16 @@ AFRAME.registerComponent('tap-place', {
         gltfModel.object3D.scale.x = this.scaleFactor * this.initialScale.x;
         gltfModel.object3D.scale.y = this.scaleFactor * this.initialScale.y;
         gltfModel.object3D.scale.z = this.scaleFactor * this.initialScale.z;
+
+        if (gltfModel.object3D.scale.x || gltfModel.object3D.scale.y || gltfModel.object3D.scale.z <= 4) {
+            gltfModel.object3D.scale.x = this.scaleFactor * this.initialScale.x;
+            gltfModel.object3D.scale.y = this.scaleFactor * this.initialScale.y;
+            gltfModel.object3D.scale.z = this.scaleFactor * this.initialScale.z;
+        }
+        else {
+            gltfModel.object3D.scale.x = 4;
+            gltfModel.object3D.scale.y = 4;
+            gltfModel.object3D.scale.z = 4;
+        }
     }
 });
