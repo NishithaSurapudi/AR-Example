@@ -1,6 +1,6 @@
 
 var isplaced = false;
-var arCamera = document.getElementById('aCamera');
+//var arCamera = document.getElementById('aCamera');
 //the component for placing the 3d model
 AFRAME.registerComponent('tap-place', {
     init: function () {
