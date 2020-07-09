@@ -43,7 +43,7 @@ AFRAME.registerComponent('tap-place', {
 
     init: function () {
         this.initialScale = this.el.object3D.scale.clone()
-        this.scaleFactor = 2.5
+        this.scaleFactor = 1
         this.handleEvent = this.handleEvent.bind(this)
         this.el.sceneEl.addEventListener('twofingermove', this.handleEvent)
     },
