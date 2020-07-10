@@ -60,7 +60,7 @@ AFRAME.registerComponent('pinch-scale', {
             gltfModel = document.getElementById('modelID1');
         }
 
-      if(scale<2){
+      if(gltfMOdel.scale.x<2){
             gltfModel.object3D.scale.x = this.scaleFactor * this.initialScale.x;
             gltfModel.object3D.scale.y = this.scaleFactor * this.initialScale.y;
             gltfModel.object3D.scale.z = this.scaleFactor * this.initialScale.z;
