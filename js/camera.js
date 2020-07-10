@@ -75,5 +75,10 @@ AFRAME.registerComponent('pinch-scale', {
             gltfModel.object3D.scale.y = this.scaleFactor * this.initialScale.y;
             gltfModel.object3D.scale.z = this.scaleFactor * this.initialScale.z;
         }
+        else
+         {
+            gltfModel.object3D.scale.x = this.scaleFactor * 2;
+            gltfModel.object3D.scale.y = this.scaleFactor * 2;
+            gltfModel.object3D.scale.z = this.scaleFactor * 2;        }
     }
 });
