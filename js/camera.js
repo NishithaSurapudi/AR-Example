@@ -45,7 +45,6 @@ AFRAME.registerComponent('pinch-scale', {
         this.initialScale = this.el.object3D.scale.clone()
         this.scaleFactor = 1
         this.maxvalue = 2
-        console.log(this.scaleFactor)
         this.handleEvent = this.handleEvent.bind(this)
         this.el.sceneEl.addEventListener('twofingermove', this.handleEvent)
     },
@@ -70,6 +69,7 @@ AFRAME.registerComponent('pinch-scale', {
         this.valuey =  gltfModel.object3D.scale.y;
         this.valuez =  gltfModel.object3D.scale.z;
 
+        console.log(this.maxvalue)
 
         if ((gltfModel.object3D.scale.x <= this.maxvalue)) {
             gltfModel.object3D.scale.x = this.valuex;
