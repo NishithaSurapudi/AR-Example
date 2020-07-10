@@ -44,7 +44,6 @@ AFRAME.registerComponent('pinch-scale', {
     init: function () {
         this.initialScale = this.el.object3D.scale.clone()
         this.scaleFactor = 1
-        this.maxvalue = 2
         this.handleEvent = this.handleEvent.bind(this)
         this.el.sceneEl.addEventListener('twofingermove', this.handleEvent)
     },
@@ -61,31 +60,17 @@ AFRAME.registerComponent('pinch-scale', {
             gltfModel = document.getElementById('modelID1');
         }
 
-        gltfModel.object3D.scale.x = this.scaleFactor * this.initialScale.x;
-        gltfModel.object3D.scale.y = this.scaleFactor * this.initialScale.y;
-        gltfModel.object3D.scale.z = this.scaleFactor * this.initialScale.z;
-
-        this.valuex =  gltfModel.object3D.scale.x;
-        this.valuey =  gltfModel.object3D.scale.y;
-        this.valuez =  gltfModel.object3D.scale.z;
-
-        console.log(this.maxvalue)
-
-        if ((gltfModel.object3D.scale.x <= this.maxvalue)) {
-            gltfModel.object3D.scale.x = this.valuex;
-
-            if ((gltfModel.object3D.scale.y <= this.maxvalue)) {
-                gltfModel.object3D.scale.y = this.valuey;
-            }
-            if ((gltfModel.object3D.scale.z <= this.maxvalue)) {
-                gltfModel.object3D.scale.z = this.valuez;
-            }
+        if (scaleFactor < 2) {
+            gltfModel.object3D.scale.x = this.scaleFactor * this.startScale.x;
+            gltfModel.object3D.scale.y = this.scaleFactor * this.startScale.y;
+            gltfModel.object3D.scale.z = this.scaleFactor * this.startScale.z;
         }
-        else 
-        {
-            gltfModel.object3D.scale.x = this.maxvalue;
-            gltfModel.object3D.scale.y = this.maxvalue;
-            gltfModel.object3D.scale.z = this.maxvalue;
+        else {
+            ogltfModel.object3D.scale.x = this.scaleFactor * 2;
+            gltfModel.object3D.scale.y = this.scaleFactor * 2;
+            gltfModel.object3D.scale.z = this.scaleFactor * 2;
         }
+
+
     }
 });
