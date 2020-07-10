@@ -60,13 +60,10 @@ AFRAME.registerComponent('pinch-scale', {
             gltfModel = document.getElementById('modelID1');
         }
 
-        if (gltfModel.object3D.scale.x < 2) {
+      
             gltfModel.object3D.scale.x = this.scaleFactor * this.startScale.x;
             gltfModel.object3D.scale.y = this.scaleFactor * this.startScale.y;
             gltfModel.object3D.scale.z = this.scaleFactor * this.startScale.z;
-        }
-      
-
-
+   
     }
 });
