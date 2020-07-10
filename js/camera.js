@@ -44,6 +44,7 @@ AFRAME.registerComponent('pinch-scale', {
     init: function () {
         this.initialScale = this.el.object3D.scale.clone()
         this.scaleFactor = 1
+        this.maxvalue = 2
         this.handleEvent = this.handleEvent.bind(this)
         this.el.sceneEl.addEventListener('twofingermove', this.handleEvent)
     },
@@ -64,25 +65,26 @@ AFRAME.registerComponent('pinch-scale', {
         gltfModel.object3D.scale.y = this.scaleFactor * this.initialScale.y;
         gltfModel.object3D.scale.z = this.scaleFactor * this.initialScale.z;
 
-        if (gltfModel.object3D.scale.x<=2) {
+        if (gltfModel.object3D.scale.x<=this.maxvalue ) {
+            gltfModel.object3D.scale.x = this.scaleFactor * this.initialScale.x;
+            gltfModel.object3D.scale.y = this.scaleFactor * this.initialScale.y;
+            gltfModel.object3D.scale.z = this.scaleFactor * this.initialScale.z;
+       
+        if (gltfModel.object3D.scale.y<=this.maxvalue ) {
             gltfModel.object3D.scale.x = this.scaleFactor * this.initialScale.x;
             gltfModel.object3D.scale.y = this.scaleFactor * this.initialScale.y;
             gltfModel.object3D.scale.z = this.scaleFactor * this.initialScale.z;
         }
-        if (gltfModel.object3D.scale.y<=2) {
+        if (gltfModel.object3D.scale.z<=this.maxvalue ) {
             gltfModel.object3D.scale.x = this.scaleFactor * this.initialScale.x;
             gltfModel.object3D.scale.y = this.scaleFactor * this.initialScale.y;
             gltfModel.object3D.scale.z = this.scaleFactor * this.initialScale.z;
         }
-        if (gltfModel.object3D.scale.z<=2) {
-            gltfModel.object3D.scale.x = this.scaleFactor * this.initialScale.x;
-            gltfModel.object3D.scale.y = this.scaleFactor * this.initialScale.y;
-            gltfModel.object3D.scale.z = this.scaleFactor * this.initialScale.z;
-        }
+    }
         else {
-            gltfModel.object3D.scale.x = 2;
-            gltfModel.object3D.scale.y = 2;
-            gltfModel.object3D.scale.z = 2;
+            gltfModel.object3D.scale.x = this.maxvalue ;
+            gltfModel.object3D.scale.y = this.maxvalue ;
+            gltfModel.object3D.scale.z = this.maxvalue ;
         }
     }
 });
