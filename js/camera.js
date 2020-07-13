@@ -15,7 +15,7 @@ AFRAME.registerComponent('tap-place', {
                 newElement.setAttribute('scale', '0.3 0.3 0.3')
                 newElement.setAttribute('id', 'modelID1')
                 newElement.setAttribute('gltf-model', '#model')
-                //const xrweb = document.getElementsByTagName('a-scene')
+                const xrweb = document.getElementsByTagName('a-scene')
                 console.log(document.getElementsByTagName('a-scene')[0].attributes)
                 this.el.sceneEl.appendChild(newElement)
                 newElement.addEventListener('model-loaded', () => {
@@ -76,9 +76,9 @@ AFRAME.registerComponent('pinch-scale', {
         }
        else
          {
-            gltfModel.object3D.scale.x = this.data.min * this.data.min *this.data.min ;
-            gltfModel.object3D.scale.y = this.data.min * this.data.min *this.data.min ;
-            gltfModel.object3D.scale.z = this.data.min * this.data.min *this.data.min ;       
+            gltfModel.object3D.scale.x = this.data.min * 3;
+            gltfModel.object3D.scale.y = this.data.min * 3;
+            gltfModel.object3D.scale.z = this.data.min * 3;       
          }
     }
 });
