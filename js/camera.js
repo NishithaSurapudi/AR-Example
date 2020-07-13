@@ -58,18 +58,18 @@ AFRAME.registerComponent('pinch-scale', {
         if (isplaced) {
             gltfModel = document.getElementById('modelID1');
         }
-        if (gltfModel.object3D.scale.x < 1.5) {
+        if (gltfModel.object3D.scale.x < 1) {
             gltfModel.object3D.scale.x = this.scaleFactor * this.initialScale.x;
             gltfModel.object3D.scale.y = this.scaleFactor * this.initialScale.y;
             gltfModel.object3D.scale.z = this.scaleFactor * this.initialScale.z;
         }
-        if (gltfModel.object3D.scale.y < 1.5) {
+        if (gltfModel.object3D.scale.y < 1) {
             gltfModel.object3D.scale.x = this.scaleFactor * this.initialScale.x;
             gltfModel.object3D.scale.y = this.scaleFactor * this.initialScale.y;
             gltfModel.object3D.scale.z = this.scaleFactor * this.initialScale.z;
         }
 
-        if (gltfModel.object3D.scale.z < 1.5) {
+        if (gltfModel.object3D.scale.z < 1) {
             gltfModel.object3D.scale.x = this.scaleFactor * this.initialScale.x;
             gltfModel.object3D.scale.y = this.scaleFactor * this.initialScale.y;
             gltfModel.object3D.scale.z = this.scaleFactor * this.initialScale.z;
