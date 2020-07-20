@@ -32,7 +32,7 @@ AFRAME.registerComponent('tap-place', {
     }
 });
 
-//the component for scaling the 3d model
+/*the component for scaling the 3d model*/
 
 AFRAME.registerComponent('pinch-scale', {
     schema: {
@@ -58,27 +58,26 @@ AFRAME.registerComponent('pinch-scale', {
         if (isplaced) {
             gltfModel = document.getElementById('modelID1');
         }
-        if (gltfModel.object3D.scale.x <=1) {
+        if (gltfModel.object3D.scale.x <= 1) {
             gltfModel.object3D.scale.x = this.scaleFactor * this.initialScale.x;
             gltfModel.object3D.scale.y = this.scaleFactor * this.initialScale.y;
             gltfModel.object3D.scale.z = this.scaleFactor * this.initialScale.z;
         }
-        if (gltfModel.object3D.scale.y <=1) {
+        if (gltfModel.object3D.scale.y <= 1) {
             gltfModel.object3D.scale.x = this.scaleFactor * this.initialScale.x;
             gltfModel.object3D.scale.y = this.scaleFactor * this.initialScale.y;
             gltfModel.object3D.scale.z = this.scaleFactor * this.initialScale.z;
         }
 
-        if (gltfModel.object3D.scale.z <=1) {
+        if (gltfModel.object3D.scale.z <= 1) {
             gltfModel.object3D.scale.x = this.scaleFactor * this.initialScale.x;
             gltfModel.object3D.scale.y = this.scaleFactor * this.initialScale.y;
             gltfModel.object3D.scale.z = this.scaleFactor * this.initialScale.z;
         }
-       else
-         {
+        else {
             gltfModel.object3D.scale.x = this.data.min * 2;
             gltfModel.object3D.scale.y = this.data.min * 2;
-            gltfModel.object3D.scale.z = this.data.min * 2;       
-         }
+            gltfModel.object3D.scale.z = this.data.min * 2;
+        }
     }
 });
